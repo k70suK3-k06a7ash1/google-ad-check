@@ -13,31 +13,31 @@ export class PunctuationAndSymbolsRule {
     const { headline, body } = adContent;
 
     if (PunctuationAndSymbolsRule.INVALID_EXCLAMATION_IN_HEADLINE_REGEX.test(headline)) {
-      return { isValid: false, reason: "Exclamation marks are not allowed in the ad headline." };
+      return { isValid: false, reason: "広告見出しで感嘆符は使用できません。" };
     }
 
     if (PunctuationAndSymbolsRule.MULTIPLE_PUNCTUATION_REGEX.test(body)) {
-      return { isValid: false, reason: "Multiple exclamation or question marks are not allowed in the ad copy." };
+      return { isValid: false, reason: "広告コピーで複数の感嘆符や疑問符は使用できません。" };
     }
 
     if (PunctuationAndSymbolsRule.REPEATED_PUNCTUATION_REGEX.test(headline) || PunctuationAndSymbolsRule.REPEATED_PUNCTUATION_REGEX.test(body)) {
-      return { isValid: false, reason: "Repeated punctuation or symbols are not allowed." };
+      return { isValid: false, reason: "句読点や記号の繰り返しは使用できません。" };
     }
 
     if (PunctuationAndSymbolsRule.NON_STANDARD_SYMBOL_USAGE_REGEX.test(headline) || PunctuationAndSymbolsRule.NON_STANDARD_SYMBOL_USAGE_REGEX.test(body)) {
-      return { isValid: false, reason: "Symbols, numbers, or characters are used incorrectly or with altered meaning." };
+      return { isValid: false, reason: "記号、数字、文字が本来の意味と異なる方法で使用されています。" };
     }
 
     if (PunctuationAndSymbolsRule.NON_STANDARD_SUPERSCRIPT_REGEX.test(headline) || PunctuationAndSymbolsRule.NON_STANDARD_SUPERSCRIPT_REGEX.test(body)) {
-      return { isValid: false, reason: "Non-standard superscript usage is not allowed." };
+      return { isValid: false, reason: "非標準の上付き文字の使用は許可されていません。" };
     }
 
     if (PunctuationAndSymbolsRule.OVERUSE_OF_SYMBOLS_REGEX.test(headline) || PunctuationAndSymbolsRule.OVERUSE_OF_SYMBOLS_REGEX.test(body)) {
-      return { isValid: false, reason: "Overuse of numbers, symbols, or punctuation for emphasis is not allowed." };
+      return { isValid: false, reason: "強調のための数字、記号、句読点の過度な使用は許可されていません。" };
     }
 
     if (PunctuationAndSymbolsRule.INVALID_OR_UNSUPPORTED_CHARS_REGEX.test(headline) || PunctuationAndSymbolsRule.INVALID_OR_UNSUPPORTED_CHARS_REGEX.test(body)) {
-        return { isValid: false, reason: "Invalid or unsupported characters (e.g., emojis, half-width katakana) are not allowed." };
+        return { isValid: false, reason: "無効またはサポートされていない文字（絵文字、半角カタカナなど）は使用できません。" };
     }
 
     return { isValid: true };
@@ -45,8 +45,8 @@ export class PunctuationAndSymbolsRule {
 
   public getResolutionActions(): string[] {
     return [
-      "Edit the ad to resolve punctuation and symbol issues.",
-      "If the symbol usage is generally considered acceptable (e.g., '5* hotel' for '5-star hotel' in English), you may resubmit the ad for review."
+      "句読点と記号の問題を解決するために広告を編集してください。",
+      "記号の使用が一般的に許容される場合（例：英語での「5-star hotel」に対する「5* hotel」）、広告を再審査のために再提出できます。"
     ];
   }
 }

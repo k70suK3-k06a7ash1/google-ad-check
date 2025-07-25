@@ -29,62 +29,62 @@ function App() {
     <div className="app">
       <div className="content-area">
         <header>
-          <h1>Google Ad Content Validator</h1>
-          <p>Validate your ad content against punctuation and symbols rules</p>
+          <h1>Google広告コンテンツバリデーター</h1>
+          <p>句読点と記号のルールに対して広告コンテンツを検証します</p>
         </header>
 
         <main>
           <div className="form-section">
             <div className="input-group">
-              <label htmlFor="headline">Ad Headline:</label>
+              <label htmlFor="headline">広告見出し:</label>
               <textarea
                 id="headline"
                 value={headline}
                 onChange={(e) => setHeadline(e.target.value)}
-                placeholder="Enter your ad headline..."
+                placeholder="広告見出しを入力してください..."
                 rows={2}
               />
             </div>
 
             <div className="input-group">
-              <label htmlFor="body">Ad Body:</label>
+              <label htmlFor="body">広告本文:</label>
               <textarea
                 id="body"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
-                placeholder="Enter your ad body text..."
+                placeholder="広告本文を入力してください..."
                 rows={4}
               />
             </div>
 
             <div className="button-group">
               <button onClick={handleValidate} className="validate-btn">
-                Validate Ad
+                検証実行
               </button>
               <button onClick={handleClear} className="clear-btn">
-                Clear
+                クリア
               </button>
             </div>
           </div>
 
           {hasValidated && validationResult && (
             <div className={`result-section ${validationResult.isValid ? 'valid' : 'invalid'}`}>
-              <h2>Validation Result</h2>
+              <h2>検証結果</h2>
               <div className="result-status">
                 <span className={`status-indicator ${validationResult.isValid ? 'valid' : 'invalid'}`}>
                   {validationResult.isValid ? '✓' : '✗'}
                 </span>
                 <span className="status-text">
-                  {validationResult.isValid ? 'Valid' : 'Invalid'}
+                  {validationResult.isValid ? '有効' : '無効'}
                 </span>
               </div>
               
               {!validationResult.isValid && validationResult.reason && (
                 <div className="error-details">
-                  <h3>Issue Found:</h3>
+                  <h3>発見された問題:</h3>
                   <p>{validationResult.reason}</p>
                   
-                  <h3>Suggested Actions:</h3>
+                  <h3>推奨アクション:</h3>
                   <ul>
                     {rule.getResolutionActions().map((action, index) => (
                       <li key={index}>{action}</li>
@@ -99,15 +99,15 @@ function App() {
       
       <div className="sidebar">
         <div className="rules-info">
-          <h3>Validation Rules</h3>
+          <h3>検証ルール</h3>
           <ul>
-            <li>No exclamation marks in headlines</li>
-            <li>No multiple punctuation marks (!! or ??)</li>
-            <li>No repeated symbols or punctuation</li>
-            <li>No non-standard symbol usage (@ home, 4 sale)</li>
-            <li>No non-standard superscripts</li>
-            <li>No overuse of symbols for emphasis</li>
-            <li>No invalid characters (emojis, special symbols)</li>
+            <li>見出しでの感嘆符の使用禁止</li>
+            <li>複数の句読点（!!や??）の使用禁止</li>
+            <li>記号や句読点の繰り返し禁止</li>
+            <li>非標準の記号使用（@ home、4 saleなど）禁止</li>
+            <li>非標準の上付き文字の使用禁止</li>
+            <li>強調のための記号の過度な使用禁止</li>
+            <li>無効な文字（絵文字、特殊記号）の使用禁止</li>
           </ul>
         </div>
       </div>

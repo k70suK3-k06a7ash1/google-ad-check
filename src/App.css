@@ -35,7 +35,8 @@ header {
 
 header h1 {
   color: #1976d2;
-  margin-bottom: 0.5rem;
+  margin : 0;
+  /* margin-bottom: 0.5rem; */
 }
 
 header p {
