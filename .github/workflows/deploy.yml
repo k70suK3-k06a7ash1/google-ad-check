@@ -23,12 +23,10 @@ jobs:
         
     - name: Install dependencies
       run: |
-        cd context-review
         npm ci
         
     - name: Build
       run: |
-        cd context-review
         npm run build
         
     - name: Deploy to GitHub Pages
