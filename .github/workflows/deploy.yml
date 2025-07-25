@@ -17,9 +17,9 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
-        cache-dependency-path: context-review/package-lock.json
+        cache-dependency-path: package-lock.json
         
     - name: Install dependencies
       run: |
@@ -36,4 +36,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./context-review/dist
+        publish_dir: ./dist
