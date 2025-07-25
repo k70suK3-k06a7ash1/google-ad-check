@@ -1,8 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .app {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.content-area {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 1;
+  min-width: 300px;
+  padding-top: 2rem;
 }
 
 header {
@@ -162,4 +185,58 @@ header p {
 
 .error-details li {
   margin-bottom: 0.5rem;
+}
+
+.rules-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  position: sticky;
+  top: 2rem;
+}
+
+.rules-info h3 {
+  color: #1976d2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.rules-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-info li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+  color: #555;
+}
+
+.rules-info li:last-child {
+  border-bottom: none;
+}
+
+.rules-info li:before {
+  content: "•";
+  color: #1976d2;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .content-area {
+    min-height: auto;
+  }
+  
+  .sidebar {
+    min-width: auto;
+    padding-top: 0;
+  }
 }
